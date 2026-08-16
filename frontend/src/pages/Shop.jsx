@@ -13,9 +13,22 @@ export default function Shop() {
   const { addToCart } = useCart();
   const [view, setView] = useState('grid');
   const [priceRange, setPriceRange] = useState(2500);
+  const [isSortOpen, setIsSortOpen] = useState(false);
+  const [sortOption, setSortOption] = useState('new');
 
   // Filter products based on price
   const filteredProducts = products.filter(product => product.price <= priceRange);
+
+  // Sort products
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    switch(sortOption) {
+      case 'price-asc': return a.price - b.price;
+      case 'price-desc': return b.price - a.price;
+      case 'name-asc': return a.name.localeCompare(b.name);
+      case 'name-desc': return b.name.localeCompare(a.name);
+      default: return 0; // 'new' keeps default order
+    }
+  });
 
   return (
     <motion.div 
@@ -161,11 +174,43 @@ export default function Shop() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="results-count">{filteredProducts.length} products found</p>
+            <p className="results-count">{sortedProducts.length} products found</p>
             <div className="sort-view-controls">
-              <div className="sort-dropdown">
-                <span>Sort</span>
-                <ChevronDown size={16} />
+              
+              <div className="sort-dropdown-container">
+                <div className="sort-dropdown" onClick={() => setIsSortOpen(!isSortOpen)}>
+                  <span>Sort</span>
+                  <ChevronDown size={16} />
+                </div>
+                
+                {isSortOpen && (
+                  <div className="sort-popup">
+                    <label className="sort-option">
+                      <input type="radio" name="sort" checked={sortOption === 'new'} onChange={() => { setSortOption('new'); setIsSortOpen(false); }} />
+                      <span>New Product</span>
+                    </label>
+                    
+                    <div className="sort-group-label">Price</div>
+                    <label className="sort-option">
+                      <input type="radio" name="sort" checked={sortOption === 'price-asc'} onChange={() => { setSortOption('price-asc'); setIsSortOpen(false); }} />
+                      <span>Low to High</span>
+                    </label>
+                    <label className="sort-option">
+                      <input type="radio" name="sort" checked={sortOption === 'price-desc'} onChange={() => { setSortOption('price-desc'); setIsSortOpen(false); }} />
+                      <span>High to Low</span>
+                    </label>
+                    
+                    <div className="sort-group-label">Name</div>
+                    <label className="sort-option">
+                      <input type="radio" name="sort" checked={sortOption === 'name-asc'} onChange={() => { setSortOption('name-asc'); setIsSortOpen(false); }} />
+                      <span>a - z</span>
+                    </label>
+                    <label className="sort-option">
+                      <input type="radio" name="sort" checked={sortOption === 'name-desc'} onChange={() => { setSortOption('name-desc'); setIsSortOpen(false); }} />
+                      <span>z - a</span>
+                    </label>
+                  </div>
+                )}
               </div>
               <div className="view-icons">
                 <SlidersHorizontal size={18} className="view-icon" />
