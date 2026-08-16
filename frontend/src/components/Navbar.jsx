@@ -46,7 +46,7 @@ export default function Navbar() {
       <nav className="nav-links desktop-only">
         <Link to="/">Home</Link>
         <Link to="/shop">Shop Menu</Link>
-        <Link to="/#about">About</Link>
+        <Link to="/about">About</Link>
         <Link to="/#reviews">Reviews</Link>
       </nav>
 
@@ -73,6 +73,7 @@ export default function Navbar() {
               <nav className="mobile-nav-links">
                 <a href="#" onClick={(e) => { e.preventDefault(); handleNav('/'); }}>Home</a>
                 <a href="#" onClick={(e) => { e.preventDefault(); handleNav('/shop'); }}>Shop Menu</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); handleNav('/about'); }}>About</a>
                 <a href="#" onClick={(e) => { e.preventDefault(); handleNav('/cart'); }}>Cart ({getCartCount()})</a>
               </nav>
             </motion.div>
