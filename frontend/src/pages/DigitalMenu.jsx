@@ -35,27 +35,6 @@ const Page = React.forwardRef((props, ref) => {
 });
 
 export default function DigitalMenu() {
-  const [dimensions, setDimensions] = useState({
-    width: 450,
-    height: 650
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        // Calculate width to fit two pages side-by-side on mobile screens
-        const availableWidth = window.innerWidth - 40; // 20px padding on each side
-        const pageW = availableWidth / 2;
-        setDimensions({ width: pageW, height: pageW * 1.5 });
-      } else {
-        setDimensions({ width: 360, height: 540 });
-      }
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   // Group products by category
   const groupedProducts = products.reduce((acc, product) => {
     if (!acc[product.category]) {
