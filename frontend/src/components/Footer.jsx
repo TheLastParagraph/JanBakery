@@ -34,20 +34,21 @@ export default function Footer() {
         </motion.div>
         
         <motion.div className="footer-col" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
-          <h3>ON OUR SITE</h3>
+          <h3>QUICK LINKS</h3>
           <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Support</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/menu">Digital Menu</a></li>
+            <li><a href="/shop">Order Online</a></li>
+            <li><a href="/about">About Us</a></li>
           </ul>
         </motion.div>
 
         <motion.div className="footer-col" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}>
-          <h3>RESOURCES</h3>
+          <h3>VISIT US</h3>
           <ul>
-            <li><a href="#">Career</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Legal</a></li>
+            <li><a href="https://maps.google.com/?q=Jan+Bakery+Magam" target="_blank" rel="noreferrer">Location Map</a></li>
+            <li><a href="#hours">Opening Hours</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </motion.div>
       </motion.div>

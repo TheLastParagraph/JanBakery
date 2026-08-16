@@ -12,7 +12,12 @@ const Page = React.forwardRef((props, ref) => {
           <h2>{props.category}</h2>
           <div className="page-ornament"></div>
         </div>
-        <div className="page-items">
+        <div 
+          className="page-items"
+          onTouchStart={(e) => e.stopPropagation()}
+          onTouchMove={(e) => e.stopPropagation()}
+          onWheel={(e) => e.stopPropagation()}
+        >
           {props.items.map(item => (
             <div key={item.id} className="menu-item-row">
               <div className="item-details">
