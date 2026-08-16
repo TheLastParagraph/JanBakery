@@ -43,7 +43,7 @@ export default function DigitalMenu() {
         const pageW = availableWidth / 2;
         setDimensions({ width: pageW, height: pageW * 1.5 });
       } else {
-        setDimensions({ width: 450, height: 650 });
+        setDimensions({ width: 320, height: 480 });
       }
     };
     handleResize();
