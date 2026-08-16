@@ -26,7 +26,8 @@
 
 .search-pill-container {
   position: absolute;
-  bottom: -40px;
+  top: 100%; /* Anchor to bottom of banner */
+  transform: translateY(-50%); /* Center it vertically on the banner edge */
   left: 0;
   width: 100%;
   display: flex;
@@ -508,6 +509,11 @@
   
   .shop-sidebar {
     width: 100%;
+  }
+
+  .search-pill-container {
+    top: 80px; /* Push it down from the top of the banner */
+    transform: none; /* Reset transform so it grows only downwards */
   }
 
   .search-pill {
