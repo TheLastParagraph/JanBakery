@@ -28,7 +28,6 @@ export default function ContactUs() {
         >
           <input type="text" placeholder="Name*" required />
           <input type="email" placeholder="Email*" required />
-          <input type="text" placeholder="Website*" required />
           <textarea placeholder="Message" rows="5"></textarea>
           <button type="submit" className="submit-btn">Submitt</button>
         </motion.form>
