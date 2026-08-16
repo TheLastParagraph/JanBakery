@@ -105,6 +105,47 @@ export default function DigitalMenu() {
     </div>
   );
 
+  const [bookState, setBookState] = useState('cover'); // 'cover', 'open', 'backCover'
+
+  const onFlip = (e) => {
+    const pageIndex = e.data;
+    if (pageIndex === 0) {
+      setBookState('cover');
+    } else if (pageIndex >= flipbookPages.length - 1) {
+      setBookState('backCover');
+    } else {
+      setBookState('open');
+    }
+  };
+
+  const getBookStyle = () => {
+    const baseStyle = { 
+      width: dimensions.width * 2, 
+      height: dimensions.height,
+      transition: 'transform 0.6s ease-in-out, clip-path 0.6s ease-in-out'
+    };
+    
+    if (bookState === 'cover') {
+      return {
+        ...baseStyle,
+        transform: 'translateX(-25%)',
+        clipPath: 'inset(0 0 0 50%)'
+      };
+    } else if (bookState === 'backCover') {
+      return {
+        ...baseStyle,
+        transform: 'translateX(25%)',
+        clipPath: 'inset(0 50% 0 0)'
+      };
+    }
+    
+    return {
+      ...baseStyle,
+      transform: 'translateX(0)',
+      clipPath: 'inset(0 0 0 0)'
+    };
+  };
+
   return (
     <motion.div 
       className="digital-menu-container"
@@ -116,7 +157,7 @@ export default function DigitalMenu() {
         <h1 className="digital-menu-title">Digital Menu Book</h1>
         <p className="digital-menu-subtitle">Drag the page corners or click to flip the pages</p>
         
-        <div className="book-container" style={{ width: dimensions.width * 2, height: dimensions.height }}>
+        <div className="book-container" style={getBookStyle()}>
           <HTMLFlipBook 
             key={`${dimensions.width}-${dimensions.height}`}
             width={dimensions.width} 
@@ -125,6 +166,7 @@ export default function DigitalMenu() {
             maxShadowOpacity={0.5}
             showCover={true}
             mobileScrollSupport={true}
+            onFlip={onFlip}
             className="menu-flipbook"
           >
             {flipbookPages}
