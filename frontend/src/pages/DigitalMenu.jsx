@@ -38,7 +38,10 @@ export default function DigitalMenu() {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setDimensions({ width: 320, height: 480 });
+        // Calculate width to fit two pages side-by-side on mobile screens
+        const availableWidth = window.innerWidth - 40; // 20px padding on each side
+        const pageW = availableWidth / 2;
+        setDimensions({ width: pageW, height: pageW * 1.5 });
       } else {
         setDimensions({ width: 450, height: 650 });
       }
@@ -77,10 +80,7 @@ export default function DigitalMenu() {
             width={dimensions.width} 
             height={dimensions.height}
             size="fixed"
-            minWidth={315}
-            maxWidth={500}
-            minHeight={400}
-            maxHeight={700}
+            usePortrait={false}
             maxShadowOpacity={0.5}
             showCover={true}
             mobileScrollSupport={true}
