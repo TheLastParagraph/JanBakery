@@ -27,6 +27,7 @@ export default function Navbar() {
           <Menu size={24} />
         </button>
         <div className="nav-actions">
+          <button className="icon-btn"><Search size={20} /></button>
           <Link to="/cart" className="cart-btn">
             <ShoppingCart size={20} />
             {getCartCount() > 0 && <span className="cart-badge">{getCartCount()}</span>}
@@ -42,13 +43,6 @@ export default function Navbar() {
         <Link to="/#about">About</Link>
         <Link to="/#reviews">Reviews</Link>
       </nav>
-
-      <div className="nav-actions desktop-only">
-        <Link to="/cart" className="cart-btn">
-          <ShoppingCart size={20} />
-          {getCartCount() > 0 && <span className="cart-badge">{getCartCount()}</span>}
-        </Link>
-      </div>
 
       <AnimatePresence>
         {isOpen && (
