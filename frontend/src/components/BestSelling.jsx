@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import './BestSelling.css';
 
 const containerVariants = {
@@ -83,7 +84,9 @@ export default function BestSelling() {
         viewport={{ once: true }}
         transition={{ delay: 0.8, duration: 0.5 }}
       >
-        <button className="btn-black">View More</button>
+        <Link to="/shop" className="btn-black" style={{ display: 'inline-block', textDecoration: 'none' }}>
+          View More
+        </Link>
       </motion.div>
     </section>
   );
