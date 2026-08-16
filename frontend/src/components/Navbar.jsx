@@ -35,7 +35,13 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className="logo"><Link to="/" style={{color: 'inherit', textDecoration: 'none'}}>Jan Bakery</Link></div>
+      <div className="logo">
+        <Link to="/" style={{color: 'inherit', textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+          <div className="logo-title">Jan Bakery.</div>
+          <div className="logo-divider"></div>
+          <div className="logo-est">EST. 1999</div>
+        </Link>
+      </div>
       
       <nav className="nav-links desktop-only">
         <Link to="/">Home</Link>
