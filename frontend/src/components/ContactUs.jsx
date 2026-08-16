@@ -28,9 +28,9 @@ export default function ContactUs() {
         >
           <input type="text" placeholder="Name*" required />
           <input type="email" placeholder="Email*" required />
-          <input type="text" placeholder="Phone*" required />
+          <input type="text" placeholder="Website*" required />
           <textarea placeholder="Message" rows="5"></textarea>
-          <button type="submit" className="submit-btn">Submit</button>
+          <button type="submit" className="submit-btn">Submitt</button>
         </motion.form>
 
         <motion.div 
@@ -40,7 +40,7 @@ export default function ContactUs() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <img src="https://images.unsplash.com/photo-1555507036-ab1f40ce88cb?w=800&q=80" alt="Jan Bakery Fresh Bread" className="contact-img" />
+          <img src="/contact_us.png" alt="Contact Us" className="contact-img" />
         </motion.div>
       </div>
     </section>
