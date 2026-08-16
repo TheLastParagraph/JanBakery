@@ -47,7 +47,8 @@ export default function Navbar() {
         <Link to="/">Home</Link>
         <Link to="/shop">Shop Menu</Link>
         <Link to="/about">About</Link>
-        <Link to="/#reviews">Reviews</Link>
+        <a href="/#reviews">Reviews</a>
+        <a href="/#contact">Contact Us</a>
       </nav>
 
       <AnimatePresence>
@@ -74,6 +75,7 @@ export default function Navbar() {
                 <a href="#" onClick={(e) => { e.preventDefault(); handleNav('/'); }}>Home</a>
                 <a href="#" onClick={(e) => { e.preventDefault(); handleNav('/shop'); }}>Shop Menu</a>
                 <a href="#" onClick={(e) => { e.preventDefault(); handleNav('/about'); }}>About</a>
+                <a href="/#contact" onClick={() => setIsOpen(false)}>Contact Us</a>
                 <a href="#" onClick={(e) => { e.preventDefault(); handleNav('/cart'); }}>Cart ({getCartCount()})</a>
               </nav>
             </motion.div>

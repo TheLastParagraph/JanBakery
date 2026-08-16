@@ -4,7 +4,7 @@ import './ContactUs.css';
 
 export default function ContactUs() {
   return (
-    <section className="contact-us container">
+    <section id="contact" className="contact-us container">
       <motion.div 
         className="contact-header"
         initial={{ opacity: 0, y: 30 }}
