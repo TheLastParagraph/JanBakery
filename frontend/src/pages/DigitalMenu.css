@@ -206,11 +206,13 @@
 
 @media (max-width: 768px) {
   .digital-menu-container {
-    padding: 100px 10px 40px;
+    padding: 20px 10px 40px;
+    align-items: flex-start;
   }
   
   .digital-menu-title {
     font-size: 1.8rem;
+    margin-top: 10px;
   }
   
   .page-content {
