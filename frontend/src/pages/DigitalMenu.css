@@ -68,7 +68,7 @@
 .page-header h2 {
   font-family: 'Playfair Display', Georgia, serif;
   color: var(--primary-orange);
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 10px;
@@ -102,13 +102,13 @@
 .item-name {
   font-family: 'Playfair Display', Georgia, serif;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: var(--text-dark);
   margin-bottom: 4px;
 }
 
 .item-desc {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: #666;
   line-height: 1.4;
   font-style: italic;
@@ -117,7 +117,7 @@
 .item-price {
   font-weight: 700;
   color: var(--text-dark);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   white-space: nowrap;
 }
 
@@ -155,7 +155,7 @@
 
 .cover-title {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   color: #FFD700;
   margin-bottom: 5px;
 }
@@ -175,7 +175,7 @@
 }
 
 .cover-menu-text {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   letter-spacing: 5px;
   font-weight: 300;
   margin-bottom: 60px;
