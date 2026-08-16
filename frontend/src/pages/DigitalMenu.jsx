@@ -74,7 +74,7 @@ export default function DigitalMenu() {
         <h1 className="digital-menu-title">Digital Menu Book</h1>
         <p className="digital-menu-subtitle">Drag the page corners or click to flip the pages</p>
         
-        <div className="book-container">
+        <div className="book-container" style={{ width: dimensions.width * 2, height: dimensions.height }}>
           <HTMLFlipBook 
             key={`${dimensions.width}-${dimensions.height}`}
             width={dimensions.width} 
