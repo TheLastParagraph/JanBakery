@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { products } from '../data/products';
 import { useCart } from '../context/CartContext';
 import { 
@@ -11,13 +11,30 @@ import './Shop.css';
 
 export default function Shop() {
   const { addToCart } = useCart();
+  const location = useLocation();
   const [view, setView] = useState('grid');
   const [priceRange, setPriceRange] = useState(2500);
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [sortOption, setSortOption] = useState('new');
+  const [localSearch, setLocalSearch] = useState('');
 
-  // Filter products based on price
-  const filteredProducts = products.filter(product => product.price <= priceRange);
+  // Sync search state with URL when navigating from navbar search
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const q = params.get('search');
+    if (q) setLocalSearch(q);
+  }, [location.search]);
+
+  // Filter products based on price and search term
+  const filteredProducts = products.filter(product => {
+    const matchesPrice = product.price <= priceRange;
+    const searchLower = localSearch.toLowerCase();
+    const matchesSearch = !searchLower || 
+                          product.name.toLowerCase().includes(searchLower) || 
+                          product.category.toLowerCase().includes(searchLower) ||
+                          product.description.toLowerCase().includes(searchLower);
+    return matchesPrice && matchesSearch;
+  });
 
   // Sort products
   const sortedProducts = [...filteredProducts].sort((a, b) => {
@@ -58,7 +75,13 @@ export default function Shop() {
               <MapPin size={20} className="field-icon" />
               <div className="field-text">
                 <span className="field-label">Search</span>
-                <input type="text" placeholder="What are you craving?" className="field-input" />
+                <input 
+                  type="text" 
+                  placeholder="What are you craving?" 
+                  className="field-input" 
+                  value={localSearch}
+                  onChange={(e) => setLocalSearch(e.target.value)}
+                />
               </div>
             </div>
             

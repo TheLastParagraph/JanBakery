@@ -7,12 +7,23 @@ import './Navbar.css';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const { getCartCount } = useCart();
   const navigate = useNavigate();
 
   const handleNav = (path) => {
     setIsOpen(false);
     navigate(path);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/shop?search=${encodeURIComponent(searchQuery)}`);
+      setSearchQuery('');
+      setIsSearchOpen(false);
+    }
   };
 
   return (
@@ -27,7 +38,23 @@ export default function Navbar() {
           <Menu size={24} />
         </button>
         <div className="nav-actions">
-          <button className="icon-btn"><Search size={20} /></button>
+          {isSearchOpen ? (
+            <form onSubmit={handleSearchSubmit} className="header-search-form">
+              <input 
+                type="text" 
+                autoFocus
+                placeholder="Search..." 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="header-search-input"
+                onBlur={() => { if(!searchQuery) setIsSearchOpen(false) }}
+              />
+            </form>
+          ) : (
+            <button className="icon-btn" onClick={() => setIsSearchOpen(true)}>
+              <Search size={20} />
+            </button>
+          )}
           <Link to="/cart" className="cart-btn">
             <ShoppingCart size={20} />
             {getCartCount() > 0 && <span className="cart-badge">{getCartCount()}</span>}
