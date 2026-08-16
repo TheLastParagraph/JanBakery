@@ -105,7 +105,6 @@ export default function DigitalMenu() {
     </div>
   );
 
-  const [isMobile, setIsMobile] = useState(false);
   const [dimensions, setDimensions] = useState({
     width: 360,
     height: 540
@@ -113,15 +112,13 @@ export default function DigitalMenu() {
 
   useEffect(() => {
     const handleResize = () => {
-      const mobileBreakpoint = window.innerWidth < 768;
-      setIsMobile(mobileBreakpoint);
-      
-      if (mobileBreakpoint) {
-        // On mobile, use single-page portrait mode for readability
+      if (window.innerWidth < 768) {
+        // Miniature 2-page spread for mobile
         const availableWidth = window.innerWidth - 30; // 15px padding on each side
-        setDimensions({ width: availableWidth, height: availableWidth * 1.45 });
+        const pageW = availableWidth / 2;
+        setDimensions({ width: pageW, height: pageW * 1.45 });
       } else {
-        // On desktop, use fixed dimensions for the 2-page spread
+        // Desktop 2-page spread
         setDimensions({ width: 360, height: 540 });
       }
     };
@@ -145,15 +142,6 @@ export default function DigitalMenu() {
   };
 
   const getBookStyle = () => {
-    if (isMobile) {
-      // In single-page mode on mobile, the book naturally fills the container. No transforms needed.
-      return { 
-        width: dimensions.width, 
-        height: dimensions.height,
-      };
-    }
-
-    // Desktop 2-page spread logic with sliding cover animations
     const baseStyle = { 
       width: dimensions.width * 2, 
       height: dimensions.height,
@@ -194,7 +182,7 @@ export default function DigitalMenu() {
         
         <div className="book-container" style={getBookStyle()}>
           <HTMLFlipBook 
-            key={`${dimensions.width}-${dimensions.height}-${isMobile ? 'mobile' : 'desktop'}`}
+            key={`${dimensions.width}-${dimensions.height}`}
             width={dimensions.width} 
             height={dimensions.height}
             size="fixed"
