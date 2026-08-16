@@ -26,16 +26,19 @@ export default function BestSelling() {
     {
       title: "FRESH BAKED BREAD",
       desc: "Soft, warm, and baked fresh every single morning to start your day right.",
+      image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80",
       bgClass: "bg-blue"
     },
     {
       title: "SIGNATURE PASTRIES",
       desc: "A sweet treat perfectly paired with our cozy cafe beverages.",
+      image: "https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?w=800&q=80",
       bgClass: "bg-yellow"
     },
     {
       title: "CUSTOM CAKES",
       desc: "Beautiful, delicious cakes made to order for any family celebration.",
+      image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80",
       bgClass: "bg-pink"
     }
   ];
@@ -65,7 +68,7 @@ export default function BestSelling() {
         {products.map((prod, index) => (
           <motion.div key={index} className="product-card" variants={cardVariants}>
             <div className={`product-img-wrapper ${prod.bgClass}`}>
-              <img src="/hero-product.jpg" alt={prod.title} className="product-img" />
+              <img src={prod.image} alt={prod.title} className="product-img" />
             </div>
             <h3 className="product-title">{prod.title}</h3>
             <p className="product-desc">{prod.desc}</p>
