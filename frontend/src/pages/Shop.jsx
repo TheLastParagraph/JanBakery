@@ -12,7 +12,10 @@ import './Shop.css';
 export default function Shop() {
   const { addToCart } = useCart();
   const [view, setView] = useState('grid');
-  const [priceRange, setPriceRange] = useState(41000);
+  const [priceRange, setPriceRange] = useState(2500);
+
+  // Filter products based on price
+  const filteredProducts = products.filter(product => product.price <= priceRange);
 
   return (
     <div className="shop-template-page">
@@ -70,12 +73,15 @@ export default function Shop() {
               <ChevronDown size={18} />
             </div>
             <div className="filter-content">
-              <div className="range-slider-mock">
-                <div className="range-track">
-                  <div className="range-fill"></div>
-                  <div className="range-handle left-handle"></div>
-                  <div className="range-handle right-handle"></div>
-                </div>
+              <div className="range-slider-container">
+                <input 
+                  type="range" 
+                  min="0" 
+                  max="3000" 
+                  value={priceRange} 
+                  onChange={(e) => setPriceRange(Number(e.target.value))}
+                  className="price-range-slider"
+                />
               </div>
               
               <div className="price-inputs">
@@ -90,7 +96,7 @@ export default function Shop() {
               </div>
               
               <div className="filter-actions">
-                <button className="btn-clear">Clear</button>
+                <button className="btn-clear" onClick={() => setPriceRange(3000)}>Clear</button>
                 <button className="btn-apply">Apply</button>
               </div>
             </div>
@@ -128,7 +134,7 @@ export default function Shop() {
         {/* Right Product Grid */}
         <main className="shop-products-area">
           <div className="products-top-bar">
-            <p className="results-count">{products.length} products found</p>
+            <p className="results-count">{filteredProducts.length} products found</p>
             <div className="sort-view-controls">
               <div className="sort-dropdown">
                 <span>Sort</span>
@@ -142,7 +148,7 @@ export default function Shop() {
           </div>
 
           <div className="products-grid-new">
-            {products.map((product, index) => (
+            {filteredProducts.map((product, index) => (
               <motion.div 
                 key={product.id} 
                 className="tour-card"
