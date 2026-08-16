@@ -18,13 +18,28 @@ export default function Shop() {
   const filteredProducts = products.filter(product => product.price <= priceRange);
 
   return (
-    <div className="shop-template-page">
+    <motion.div 
+      className="shop-template-page"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       {/* 1. TOP BANNER & SEARCH OVERLAY */}
-      <div className="shop-banner-container">
+      <motion.div 
+        className="shop-banner-container"
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <div className="shop-banner-bg"></div>
         
         {/* Floating Search Pill */}
-        <div className="search-pill-container">
+        <motion.div 
+          className="search-pill-container"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+        >
           <div className="search-pill">
             <div className="search-field">
               <MapPin size={20} className="field-icon" />
@@ -58,14 +73,20 @@ export default function Shop() {
               Search
             </button>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* 2. MAIN CONTENT AREA */}
       <div className="shop-main-layout container">
         
         {/* Left Sidebar */}
-        <aside className="shop-sidebar">
+        <motion.aside 
+          className="shop-sidebar"
+          initial={{ x: -30, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           
           <div className="filter-box">
             <div className="filter-header">
@@ -129,11 +150,17 @@ export default function Shop() {
             </div>
           </div>
           
-        </aside>
+        </motion.aside>
 
         {/* Right Product Grid */}
         <main className="shop-products-area">
-          <div className="products-top-bar">
+          <motion.div 
+            className="products-top-bar"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             <p className="results-count">{filteredProducts.length} products found</p>
             <div className="sort-view-controls">
               <div className="sort-dropdown">
@@ -145,16 +172,17 @@ export default function Shop() {
                 <Grid size={18} className="view-icon active" />
               </div>
             </div>
-          </div>
+          </motion.div>
 
           <div className="products-grid-new">
             {filteredProducts.map((product, index) => (
               <motion.div 
                 key={product.id} 
                 className="tour-card"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Link to={`/product/${product.id}`} className="tour-card-img-link">
                   <div className="tour-card-img-wrapper">
@@ -200,6 +228,6 @@ export default function Shop() {
         </main>
 
       </div>
-    </div>
+    </motion.div>
   );
 }
