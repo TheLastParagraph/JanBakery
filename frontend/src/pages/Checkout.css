@@ -1,0 +1,146 @@
+.checkout-page {
+  padding: 8rem 2rem 4rem;
+  min-height: 100vh;
+}
+
+.checkout-page.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.checkout-page.empty h2 {
+  margin-bottom: 2rem;
+}
+
+.checkout-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.checkout-content {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.checkout-form {
+  flex: 2;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.checkout-form h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: #fafafa;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-orange);
+  background: #fff;
+}
+
+.place-order-btn {
+  width: 100%;
+  padding: 1.25rem;
+  background: #25D366; /* WhatsApp Green */
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: opacity 0.2s;
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+}
+
+.place-order-btn:hover {
+  opacity: 0.9;
+}
+
+.checkout-summary {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 16px;
+  position: sticky;
+  top: 100px;
+}
+
+.checkout-summary h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.summary-items {
+  margin-bottom: 1.5rem;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eaeaea;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 1.5rem;
+}
+
+.whatsapp-notice {
+  font-size: 0.85rem;
+  color: var(--text-gray);
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .checkout-content {
+    flex-direction: column;
+  }
+  
+  .checkout-form {
+    padding: 1.5rem;
+  }
+}

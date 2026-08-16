@@ -1,0 +1,50 @@
+export const products = [
+  {
+    id: "prod_01",
+    name: "Fresh Baked Bread",
+    price: 60,
+    description: "Soft, warm, and baked fresh every single morning. Perfect for sandwiches or simply toasted with butter.",
+    category: "Bread",
+    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80",
+  },
+  {
+    id: "prod_02",
+    name: "Signature Croissant",
+    price: 85,
+    description: "Buttery, flaky, and golden-brown. Our signature croissants are a delightful morning treat.",
+    category: "Pastry",
+    image: "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=800&q=80",
+  },
+  {
+    id: "prod_03",
+    name: "Classic Fruit Cake",
+    price: 450,
+    description: "A rich and moist cake loaded with candied fruits and nuts. Perfect for celebrations or a cozy evening.",
+    category: "Cake",
+    image: "https://images.unsplash.com/photo-1562777717-b6c338275293?w=800&q=80",
+  },
+  {
+    id: "prod_04",
+    name: "Walnut Brownie",
+    price: 120,
+    description: "Fudgy, dense, and packed with roasted walnuts. A chocolate lover's dream.",
+    category: "Confectionery",
+    image: "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=800&q=80",
+  },
+  {
+    id: "prod_05",
+    name: "Assorted Butter Cookies",
+    price: 180,
+    description: "Melt-in-your-mouth butter cookies in a variety of classic shapes and flavors.",
+    category: "Confectionery",
+    image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=800&q=80",
+  },
+  {
+    id: "prod_06",
+    name: "Custom Birthday Cake",
+    price: 1200,
+    description: "Beautiful, delicious cakes made to order for your special day. Contact us for custom designs.",
+    category: "Custom Cake",
+    image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80",
+  }
+];

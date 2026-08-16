@@ -50,10 +50,28 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.2s ease;
+  position: relative;
 }
 
 .cart-btn:hover {
   transform: translateY(-2px);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .mobile-menu-btn {
@@ -145,4 +163,3 @@
     order: 1;
   }
 }
-

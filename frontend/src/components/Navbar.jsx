@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 import { Search, ShoppingCart, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import './Navbar.css';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { getCartCount } = useCart();
+  const navigate = useNavigate();
+
+  const handleNav = (path) => {
+    setIsOpen(false);
+    navigate(path);
+  };
 
   return (
     <motion.header 
@@ -18,19 +27,28 @@ export default function Navbar() {
           <Menu size={24} />
         </button>
         <div className="nav-actions">
-          <button className="icon-btn"><Search size={20} /></button>
-          <button className="cart-btn"><ShoppingCart size={20} /></button>
+          <Link to="/cart" className="cart-btn">
+            <ShoppingCart size={20} />
+            {getCartCount() > 0 && <span className="cart-badge">{getCartCount()}</span>}
+          </Link>
         </div>
       </div>
 
-      <div className="logo">Jan Bakery</div>
+      <div className="logo"><Link to="/" style={{color: 'inherit', textDecoration: 'none'}}>Jan Bakery</Link></div>
       
       <nav className="nav-links desktop-only">
-        <a href="#home">Home</a>
-        <a href="#products">Products</a>
-        <a href="#about">About</a>
-        <a href="#reviews">Reviews</a>
+        <Link to="/">Home</Link>
+        <Link to="/shop">Shop Menu</Link>
+        <Link to="/#about">About</Link>
+        <Link to="/#reviews">Reviews</Link>
       </nav>
+
+      <div className="nav-actions desktop-only">
+        <Link to="/cart" className="cart-btn">
+          <ShoppingCart size={20} />
+          {getCartCount() > 0 && <span className="cart-badge">{getCartCount()}</span>}
+        </Link>
+      </div>
 
       <AnimatePresence>
         {isOpen && (
@@ -53,10 +71,9 @@ export default function Navbar() {
                 <X size={24} />
               </button>
               <nav className="mobile-nav-links">
-                <a href="#home" onClick={() => setIsOpen(false)}>Home</a>
-                <a href="#products" onClick={() => setIsOpen(false)}>Products</a>
-                <a href="#about" onClick={() => setIsOpen(false)}>About</a>
-                <a href="#reviews" onClick={() => setIsOpen(false)}>Reviews</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); handleNav('/'); }}>Home</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); handleNav('/shop'); }}>Shop Menu</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); handleNav('/cart'); }}>Cart ({getCartCount()})</a>
               </nav>
             </motion.div>
           </>
