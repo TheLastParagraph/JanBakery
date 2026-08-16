@@ -21,7 +21,7 @@ export const products = [
     price: 450,
     description: "A rich and moist cake loaded with candied fruits and nuts. Perfect for celebrations or a cozy evening.",
     category: "Cake",
-    image: "https://images.unsplash.com/photo-1562777717-b6c338275293?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=800&q=80",
   },
   {
     id: "prod_04",
