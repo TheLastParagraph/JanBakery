@@ -80,6 +80,8 @@ export default function DigitalMenu() {
             width={dimensions.width} 
             height={dimensions.height}
             size="fixed"
+            minWidth={100}
+            minHeight={100}
             maxShadowOpacity={0.5}
             showCover={true}
             mobileScrollSupport={true}
