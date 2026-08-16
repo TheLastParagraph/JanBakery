@@ -509,13 +509,21 @@
   .shop-sidebar {
     width: 100%;
   }
+
+  .search-pill {
+    flex-direction: column;
+    align-items: stretch;
+    width: 90%;
+    padding: 20px;
+  }
   
   .search-field {
-    flex: 1 1 100%;
-    min-width: 100%;
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 15px;
   }
   
   .shop-banner-container {
-    margin-bottom: 220px;
+    margin-bottom: 250px;
   }
 }
