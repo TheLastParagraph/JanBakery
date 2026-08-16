@@ -240,23 +240,51 @@
     gap: 4px;
   }
   
+  .cover-page {
+    padding: 10px;
+  }
+  
+  .cover-content {
+    padding: 4px;
+  }
+  
+  .cover-border {
+    padding: 10px;
+  }
+  
   .cover-title {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
   }
   
   .cover-est {
-    font-size: 0.5rem;
-    letter-spacing: 2px;
+    font-size: 0.45rem;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
   }
   
   .cover-menu-text {
-    font-size: 1.5rem;
-    letter-spacing: 3px;
-    margin-bottom: 30px;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+  }
+  
+  .cover-divider {
+    margin: 5px 0;
   }
   
   .cover-address {
-    font-size: 0.5rem;
+    font-size: 0.45rem;
+    line-height: 1.2;
+  }
+  
+  .back-thanks {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .back-sub {
+    font-size: 0.55rem;
   }
   
   .page-footer {
