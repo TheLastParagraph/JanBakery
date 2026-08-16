@@ -33,7 +33,15 @@ export default function Hero() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
         >
-          <button className="btn-black">Visit Us Today</button>
+          <a 
+            href="https://www.google.com/maps/search/?api=1&query=Jan+Bakery%2C+Magam%2C+Jammu+and+Kashmir&utm_source=janbakery.isbest.org" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn-black" 
+            style={{ display: 'inline-block', textDecoration: 'none' }}
+          >
+            Visit Us Today
+          </a>
         </motion.div>
       </div>
 
