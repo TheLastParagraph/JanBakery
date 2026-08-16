@@ -218,26 +218,26 @@
   }
   
   .page-header h2 {
-    font-size: 0.85rem;
-    margin-bottom: 5px;
+    font-size: 0.7rem;
+    margin-bottom: 4px;
   }
   
   .item-name {
-    font-size: 0.7rem;
-    margin-bottom: 2px;
+    font-size: 0.55rem;
+    margin-bottom: 1px;
   }
   
   .item-desc {
-    font-size: 0.55rem;
-    line-height: 1.2;
+    font-size: 0.45rem;
+    line-height: 1.1;
   }
   
   .item-price {
-    font-size: 0.7rem;
+    font-size: 0.55rem;
   }
   
   .page-items {
-    gap: 6px;
+    gap: 4px;
   }
   
   .cover-title {
@@ -260,7 +260,7 @@
   }
   
   .page-footer {
-    font-size: 0.6rem;
-    padding-bottom: 10px;
+    font-size: 0.45rem;
+    padding-bottom: 8px;
   }
 }
