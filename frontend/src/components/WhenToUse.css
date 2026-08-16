@@ -1,0 +1,60 @@
+.when-to-use {
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.use-card {
+  background-color: white;
+  border: 1px solid #EAEAEA;
+  border-radius: 12px;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.use-card:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.icon-wrapper {
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+}
+
+.use-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.use-card p {
+  color: var(--text-gray);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.order-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
