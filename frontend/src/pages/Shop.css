@@ -44,6 +44,7 @@
   gap: 20px;
   width: 90%;
   max-width: 900px;
+  box-sizing: border-box;
 }
 
 .search-field {
@@ -51,15 +52,20 @@
   align-items: center;
   gap: 15px;
   flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .field-icon {
   color: #777;
+  flex-shrink: 0;
 }
 
 .field-text {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-width: 0;
 }
 
 .field-label {
@@ -67,6 +73,7 @@
   font-weight: 700;
   color: #333;
   margin-bottom: 2px;
+  white-space: nowrap;
 }
 
 .field-input {
@@ -77,6 +84,7 @@
   padding: 0;
   outline: none;
   width: 100%;
+  min-width: 0;
 }
 
 .field-input::placeholder {
@@ -503,6 +511,7 @@
   }
   
   .search-field {
+    flex: 1 1 100%;
     min-width: 100%;
   }
   
