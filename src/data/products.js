@@ -1,4 +1,4 @@
-export const products = [
+ï»¿export const products = [
   { "id": "m1", "name": "Sweet Corn Soup", "price": 160, "category": "Soups", "description": "Warm and comforting sweet corn soup.", "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=800&q=80" },
   { "id": "m2", "name": "Hot & Sour Soup", "price": 180, "category": "Soups", "description": "Spicy and tangy hot and sour soup.", "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=800&q=80" },
   { "id": "m3", "name": "Chicken Biryani", "price": 240, "category": "Mains", "description": "Aromatic basmati rice cooked with tender chicken and spices.", "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=800&q=80" },
@@ -9,7 +9,7 @@ export const products = [
   { "id": "m8", "name": "Chicken Tikka", "price": 260, "category": "Tandoor", "description": "Spicy and juicy chicken tikka chunks.", "image": "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=800&q=80" },
   { "id": "m9", "name": "Mutton Seekh Kebab", "price": 140, "category": "Tandoor", "description": "Minced mutton kebabs grilled on skewers.", "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=800&q=80" },
   { "id": "m10", "name": "Paneer Butter Masala", "price": 400, "category": "Veg", "description": "Rich paneer curry cooked in a buttery tomato gravy.", "image": "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=800&q=80" },
-  { "id": "m11", "name": "Mix veg dry", "price": 280, "category": "Veg", "description": "A mix of fresh vegetables sautéed with dry spices.", "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=800&q=80" },
+  { "id": "m11", "name": "Mix veg dry", "price": 280, "category": "Veg", "description": "A mix of fresh vegetables sauteed with dry spices.", "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=800&q=80" },
   { "id": "m12", "name": "Cappuccino", "price": 120, "category": "Hot Beverages", "description": "Classic espresso with steamed milk and a thick layer of foam.", "image": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?w=800&q=80" },
   { "id": "m13", "name": "Cafe Latte", "price": 120, "category": "Hot Beverages", "description": "Smooth espresso with steamed milk.", "image": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?w=800&q=80" },
   { "id": "m14", "name": "Kashmiri Kehwa", "price": 99, "category": "Hot Beverages", "description": "Traditional Kashmiri green tea infused with spices and almonds.", "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=800&q=80" },
