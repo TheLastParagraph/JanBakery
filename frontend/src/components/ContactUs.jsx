@@ -40,7 +40,7 @@ export default function ContactUs() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <img src="/hero-product.jpg" alt="Holding Keto Bar" className="contact-img" />
+          <img src="https://images.unsplash.com/photo-1555507036-ab1f40ce88cb?w=800&q=80" alt="Jan Bakery Fresh Bread" className="contact-img" />
         </motion.div>
       </div>
     </section>
