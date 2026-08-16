@@ -61,7 +61,49 @@ export default function DigitalMenu() {
   }, {});
 
   const categories = Object.keys(groupedProducts);
-  const isOddPages = (2 + categories.length) % 2 !== 0;
+  // Build flat array of pages to satisfy react-pageflip's strict children requirements
+  const flipbookPages = [];
+  
+  // 1. Front Cover
+  flipbookPages.push(
+    <div key="front-cover" className="menu-page cover-page" data-density="hard">
+      <div className="cover-content">
+        <div className="cover-border">
+          <h1 className="cover-title">Jan Bakery</h1>
+          <div className="cover-divider"></div>
+          <p className="cover-est">EST. 1999</p>
+          <h2 className="cover-menu-text">MENU</h2>
+          <p className="cover-address">Kalan Complex, Magam<br/>Gulmarg Road</p>
+        </div>
+      </div>
+    </div>
+  );
+
+  // 2. Category Pages
+  categories.forEach((cat, index) => {
+    flipbookPages.push(
+      <Page key={cat} number={index + 1} category={cat} items={groupedProducts[cat]} />
+    );
+  });
+
+  // 3. Blank Page (if needed to make total pages even)
+  if (categories.length % 2 !== 0) {
+    flipbookPages.push(
+      <Page key="blank" number={categories.length + 1} category="" items={[]} />
+    );
+  }
+
+  // 4. Back Cover
+  flipbookPages.push(
+    <div key="back-cover" className="menu-page cover-page back-cover" data-density="hard">
+      <div className="cover-content">
+        <div className="cover-border">
+          <h3 className="back-thanks">Thank You</h3>
+          <p className="back-sub">We hope you enjoyed our menu.</p>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <motion.div 
@@ -80,48 +122,12 @@ export default function DigitalMenu() {
             width={dimensions.width} 
             height={dimensions.height}
             size="fixed"
-            minWidth={100}
-            minHeight={100}
             maxShadowOpacity={0.5}
             showCover={true}
             mobileScrollSupport={true}
             className="menu-flipbook"
           >
-            {/* Cover */}
-            <div className="menu-page cover-page" data-density="hard">
-              <div className="cover-content">
-                <div className="cover-border">
-                  <h1 className="cover-title">Jan Bakery</h1>
-                  <div className="cover-divider"></div>
-                  <p className="cover-est">EST. 1999</p>
-                  <h2 className="cover-menu-text">MENU</h2>
-                  <p className="cover-address">Kalan Complex, Magam<br/>Gulmarg Road</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Inner Pages */}
-            {categories.map((cat, index) => (
-              <Page key={cat} number={index + 1} category={cat} items={groupedProducts[cat]} />
-            ))}
-
-            {isOddPages && (
-              <div className="menu-page blank-page" data-density="soft">
-                <div className="page-content">
-                  <div className="page-footer">- {categories.length + 1} -</div>
-                </div>
-              </div>
-            )}
-
-            {/* Back Cover */}
-            <div className="menu-page cover-page back-cover" data-density="hard">
-              <div className="cover-content">
-                <div className="cover-border">
-                  <h3 className="back-thanks">Thank You</h3>
-                  <p className="back-sub">We hope you enjoyed our menu.</p>
-                </div>
-              </div>
-            </div>
+            {flipbookPages}
           </HTMLFlipBook>
         </div>
       </div>
