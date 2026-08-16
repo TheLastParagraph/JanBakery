@@ -44,8 +44,6 @@
   background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
   border-right: 1px solid rgba(0,0,0,0.1);
   box-shadow: inset 1px 0 10px rgba(0,0,0,0.05);
-  overflow: hidden;
-  position: relative;
 }
 
 /* Left page shadow */

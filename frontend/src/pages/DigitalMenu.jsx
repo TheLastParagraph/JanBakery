@@ -73,9 +73,10 @@ export default function DigitalMenu() {
         
         <div className="book-container">
           <HTMLFlipBook 
+            key={`${dimensions.width}-${dimensions.height}`}
             width={dimensions.width} 
             height={dimensions.height}
-            size="stretch"
+            size="fixed"
             minWidth={315}
             maxWidth={500}
             minHeight={400}
